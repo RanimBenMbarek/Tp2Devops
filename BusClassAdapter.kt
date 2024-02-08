@@ -14,12 +14,6 @@ class BusClassAdapter(private val onItemClick: ((Schedule) -> Unit)?) : Recycler
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.stopText.text = dataSet.get(position).stopName
-        val formattedDate = GetDate(position)
-        viewHolder.timeText.text = formattedDate.toString()
-    }
-
     private fun GetDate(position: Int): String {
         val timestamp = dataSet.get(position).arrivalTime.toLong() // Your timestamp value
 
@@ -33,9 +27,5 @@ class BusClassAdapter(private val onItemClick: ((Schedule) -> Unit)?) : Recycler
         return formattedDate
     }
 
-    fun updateList(dataList: List<Schedule>){
-        this.dataSet = dataList;
-        notifyDataSetChanged();
-    }
     override fun getItemCount() = dataSet.size
 }
