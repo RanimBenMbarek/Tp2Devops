@@ -18,9 +18,4 @@ class BusClassAdapter(private val onItemClick: ((Schedule) -> Unit)?) : Recycler
         return formattedDate
     }
 
-    fun updateList(dataList: List<Schedule>){
-        this.dataSet = dataList;
-        notifyDataSetChanged();
-    }
-    override fun getItemCount() = dataSet.size
 }
