@@ -12,6 +12,11 @@ class BusClassAdapter(private val onItemClick: ((Schedule) -> Unit)?) : Recycler
             .inflate(R.layout.bus_layout, viewGroup, false)
 
         return ViewHolder(view)
+     }
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+        viewHolder.stopText.text = dataSet.get(position).stopName
+        val formattedDate = GetDate(position)
+        viewHolder.timeText.text = formattedDate.toString()
     }
 
     private fun GetDate(position: Int): String {
@@ -23,7 +28,7 @@ class BusClassAdapter(private val onItemClick: ((Schedule) -> Unit)?) : Recycler
         val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
         sdf.timeZone = TimeZone.getDefault() // Set the desired timezone, if needed
 
-        val formattedDate = sdf.format(date)
+        val formattedDate = sdf.format(date)‑
         return formattedDate
     }
 
