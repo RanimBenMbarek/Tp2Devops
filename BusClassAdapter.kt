@@ -3,12 +3,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tp4.R
-import com.example.tp4.busschedule.Entites.Schedule
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
-import java.util.TimeZone
 
 
 class BusClassAdapter(private val onItemClick: ((Schedule) -> Unit)?) : RecyclerView.Adapter<BusClassAdapter.ViewHolder>() {
@@ -18,15 +12,7 @@ class BusClassAdapter(private val onItemClick: ((Schedule) -> Unit)?) : Recycler
         val stopText: TextView
         val timeText: TextView
 
-        init {
-            stopText = view.findViewById(R.id.stop)
-            timeText = view.findViewById(R.id.time)
-            view.setOnClickListener {
-                val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    onItemClick?.let { it1 -> it1(dataSet[position]) }
-                }
-            }
+      
         }
     }
 
