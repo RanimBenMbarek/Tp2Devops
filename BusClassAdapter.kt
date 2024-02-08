@@ -4,16 +4,6 @@ import android.view.ViewGroup
 
 
 class BusClassAdapter(private val onItemClick: ((Schedule) -> Unit)?) : RecyclerView.Adapter<BusClassAdapter.ViewHolder>() {
-    private var dataSet : List<Schedule>  = listOf<Schedule>();
-
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater
-            .from(viewGroup.context)
-            .inflate(R.layout.bus_layout, viewGroup, false)
-
-        return ViewHolder(view)
-    }
-
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.stopText.text = dataSet.get(position).stopName
         val formattedDate = GetDate(position)
