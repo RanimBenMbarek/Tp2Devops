@@ -1,20 +1,10 @@
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 
 
 class BusClassAdapter(private val onItemClick: ((Schedule) -> Unit)?) : RecyclerView.Adapter<BusClassAdapter.ViewHolder>() {
     private var dataSet : List<Schedule>  = listOf<Schedule>();
-
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val stopText: TextView
-        val timeText: TextView
-
-      
-        }
-    }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater
